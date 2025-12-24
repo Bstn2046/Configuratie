@@ -1,3 +1,3 @@
-# powershell-RoC
-Informatie voor exmamen powershell
-Website: https://bstn2046.github.io/powershellroc/
+# Configuratie examen
+Informatie voor exmamen B1-K2
+Website: https://bstn2046.github.io/configuratie/
