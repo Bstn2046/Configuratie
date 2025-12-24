@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Werkproces 1</title>
+  <meta name="description" content="Pagina voor Werkproces 1 met navigatie naar Werkproces 2 en Hulpzoeker."/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header role="banner">
+    <h1 class="title">Werkproces 1</h1>
+    <p>Overzicht & stappen voor werkproces 1.</p>
+  </header>
+  <nav class="nav" aria-label="Hoofdnavigatie">
+  <a class="btn primary" href="werkproces1.html">Werkproces 1</a>
+  <a class="btn" href="werkproces2.html">Werkproces 2</a>
+  <a class="btn" href="hulpzoeker.html">Hulpzoeker</a>
+</nav>
+  <main role="main">
+    
+    <section class="card" aria-label="Inhoud Werkproces 1">
+      
+<p>&lt;!doctype html&gt;</p>
+<p>&lt;html lang=&quot;nl&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;utf-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</p>
+<p>  &lt;title&gt;Solar Plex Network — Arnhem Configuratiegids&lt;/title&gt;</p>
+<p>  &lt;style&gt;</p>
+<p>    :root {</p>
+<p>      --bg: #0f172a; /* slate-900 */</p>
+<p>      --panel: #111827; /* gray-900 */</p>
+<p>      --muted: #94a3b8; /* slate-400 */</p>
+<p>      --text: #e5e7eb; /* gray-200 */</p>
+<p>      --accent: #22d3ee; /* cyan-400 */</p>
+<p>      --accent2: #a78bfa; /* violet-400 */</p>
+<p>      --ok: #10b981; /* emerald-500 */</p>
+<p>      --warn: #f59e0b; /* amber-500 */</p>
+<p>      --bad: #ef4444; /* red-500 */</p>
+<p>      --border: #1f2937; /* gray-800 */</p>
+<p>      --code-bg: #0b1220; /* darker */</p>
+<p>    }</p>
+<p>    * { box-sizing: border-box; }</p>
+<p>    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, &#x27;Noto Sans&#x27;, &#x27;Helvetica Neue&#x27;, Arial, &#x27;Apple Color Emoji&#x27;,&#x27;Segoe UI Emoji&#x27;; background: var(--bg); color: var(--text); line-height: 1.6; }</p>
+<p>    header { padding: 3rem 1.25rem; background: linear-gradient(120deg, rgba(34,211,238,.12), rgba(167,139,250,.12)); border-bottom: 1px solid var(--border); }</p>
+<p>    header h1 { margin: 0 0 .5rem; font-size: clamp(1.8rem, 3.6vw, 2.6rem); letter-spacing: .5px; }</p>
+<p>    header p { margin: 0; color: var(--muted); }</p>
+<p>    main { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }</p>
+<p>    .toc { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; margin-bottom: 1.25rem; }</p>
+<p>    .toc h2 { margin-top: 0; font-size: 1.2rem; }</p>
+<p>    .toc a { color: var(--accent); text-decoration: none; }</p>
+<p>    section { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem; margin: 0 0 1.25rem; }</p>
+<p>    h2 { margin-top: 0; font-size: 1.4rem; }</p>
+<p>    h3 { font-size: 1.1rem; margin-bottom: .35rem; }</p>
+<p>    .grid { display: grid; gap: 1rem; }</p>
+<p>    .grid.cols-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }</p>
+<p>    .badge { display: inline-block; padding: .1rem .5rem; border-radius: 999px; font-size: .75rem; border: 1px solid var(--border); background: #0b1328; color: var(--accent); }</p>
+<p>    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &#x27;Liberation Mono&#x27;, &#x27;Courier New&#x27;, monospace; background: #0a1220; border: 1px solid var(--border); padding: .1rem .35rem; border-radius: 6px; }</p>
+<p>    .panel { border: 1px dashed var(--border); border-radius: 10px; padding: .75rem; }</p>
+
+<p>    /* Code blocks */</p>
+<p>    pre { position: relative; margin: .75rem 0; padding: 0; }</p>
+<p>    pre code { display: block; padding: 1rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 10px; overflow-x: auto; }</p>
+<p>    .bar { display:flex; align-items:center; justify-content:space-between; gap:.5rem; padding:.5rem .75rem; background: #0c1628; border:1px solid var(--border); border-bottom:none; border-radius:12px 12px 0 0; }</p>
+<p>    .bar .lang { color: var(--muted); font-size:.85rem; }</p>
+<p>    .copy { appearance: none; border: 1px solid var(--border); background: #0a1220; color: var(--text); padding: .35rem .6rem; border-radius: 8px; font-size: .8rem; cursor: pointer; }</p>
+<p>    .copy:hover { background: #0e1728; }</p>
+
+<p>    ul { margin: .25rem 0 .75rem; }</p>
+<p>    li { margin: .2rem 0; }</p>
+<p>    .callout { border-left: 3px solid var(--accent); background: #0b1424; padding: .6rem .75rem; border-radius: 8px; }</p>
+<p>    .ok { color: var(--ok); }</p>
+<p>    .bad { color: var(--bad); }</p>
+<p>    .warn { color: var(--warn); }</p>
+<p>    footer { color: var(--muted); text-align:center; padding: 2rem 1rem; }</p>
+<p>    a.btn { display:inline-block; padding:.4rem .75rem; border:1px solid var(--border); border-radius:8px; color:var(--text); text-decoration:none; }</p>
+<p>  &lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>  &lt;header&gt;</p>
+<p>    &lt;h1&gt;Solar Plex Network — Arnhem Configuratiegids&lt;/h1&gt;</p>
+<p>    &lt;p&gt;Volledige stap-voor-stap handleiding (HTML) met alle CLI-commando’s, WiFi-instellingen, testen en troubleshooting. Gemaakt voor: Bastiaan Lemmen (ROCvA).&lt;/p&gt;</p>
+<p>  &lt;/header&gt;</p>
+<p>  &lt;main&gt;</p>
+<p>    &lt;section class=&quot;toc&quot; id=&quot;inhoud&quot;&gt;</p>
+<p>      &lt;h2&gt;Inhoud&lt;/h2&gt;</p>
+<p>      &lt;div class=&quot;grid cols-2&quot;&gt;</p>
+<p>        &lt;div&gt;</p>
+<p>          &lt;ul&gt;</p>
+<p>            &lt;li&gt;&lt;a href=&quot;#scenario&quot;&gt;Scenario &amp; IP-plan&lt;/a&gt;&lt;/li&gt;</p>
+<p>            &lt;li&gt;&lt;a href=&quot;#core&quot;&gt;Core01_ARN configuratie&lt;/a&gt;&lt;/li&gt;</p>
+<p>            &lt;li&gt;&lt;a href=&quot;#sw01&quot;&gt;SW01-ARN poorten&lt;/a&gt;&lt;/li&gt;</p>
+<p>            &lt;li&gt;&lt;a href=&quot;#sw02&quot;&gt;SW02-ARN poorten&lt;/a&gt;&lt;/li&gt;</p>
+<p>            &lt;li&gt;&lt;a href=&quot;#wifi&quot;&gt;WiFi: AP02 &amp; AP_Gast&lt;/a&gt;&lt;/li&gt;</p>
+<p>            &lt;li&gt;&lt;a href=&quot;#printer&quot;&gt;Printer0 (statisch IP)&lt;/a&gt;&lt;/li&gt;</p>
+<p>          &lt;/ul&gt;</p>
+<p>        &lt;/div&gt;</p>
+<p>        &lt;div&gt;</p>
+<p>          &lt;ul&gt;</p>
+<p>            &lt;li&gt;&lt;a href=&quot;#tests&quot;&gt;Testactiviteiten (1–4)&lt;/a&gt;&lt;/li&gt;</p>
+<p>            &lt;li&gt;&lt;a href=&quot;#pings&quot;&gt;Pings &amp; screenshots&lt;/a&gt;&lt;/li&gt;</p>
+<p>            &lt;li&gt;&lt;a href=&quot;#trouble&quot;&gt;Troubleshooting checklist&lt;/a&gt;&lt;/li&gt;</p>
+<p>            &lt;li&gt;&lt;a href=&quot;#verificatie&quot;&gt;Verificatiecommando’s&lt;/a&gt;&lt;/li&gt;</p>
+<p>          &lt;/ul&gt;</p>
+<p>        &lt;/div&gt;</p>
+<p>      &lt;/div&gt;</p>
+<p>    &lt;/section&gt;</p>
+
+<p>    &lt;section id=&quot;scenario&quot;&gt;</p>
+<p>      &lt;h2&gt;Scenario &amp; IP-plan&lt;/h2&gt;</p>
+<p>      &lt;div class=&quot;grid cols-2&quot;&gt;</p>
+<p>        &lt;div class=&quot;panel&quot;&gt;</p>
+<p>          &lt;h3&gt;Locaties en VLAN’s&lt;/h3&gt;</p>
+<p>          &lt;ul&gt;</p>
+<p>            &lt;li&gt;Nijmegen (HQ): Management (VLAN 10), HR &amp; Finance (VLAN 20), IT (VLAN 5)&lt;/li&gt;</p>
+<p>            &lt;li&gt;Arnhem (wij bouwen dit): Productie (VLAN 30), Marketing (VLAN 40), Gasten_Wifi (VLAN 50)&lt;/li&gt;</p>
+<p>          &lt;/ul&gt;</p>
+<p>          &lt;h3&gt;IP Plan Arnhem&lt;/h3&gt;</p>
+<p>          &lt;ul&gt;</p>
+<p>            &lt;li&gt;&lt;strong&gt;Rtr_Inet&lt;/strong&gt;: G0/0/1 = 10.10.0.1/24; G0/0/2 = 86.0.0.2 (DHCP); S0/1/0 = 185.90.90.1/30&lt;/li&gt;</p>
+<p>            &lt;li&gt;&lt;strong&gt;Core01_ARN SVI’s&lt;/strong&gt;: Vlan1=10.10.0.2; Vlan30=10.10.30.1; Vlan40=10.10.40.1; Vlan50=10.10.50.1&lt;/li&gt;</p>
+<p>            &lt;li&gt;&lt;strong&gt;Printer0&lt;/strong&gt; (WiFi): 10.10.40.60/24, DG 10.10.40.1&lt;/li&gt;</p>
+<p>          &lt;/ul&gt;</p>
+<p>        &lt;/div&gt;</p>
+<p>        &lt;div class=&quot;panel&quot;&gt;</p>
+<p>          &lt;h3&gt;Aansluitingen (belangrijkste)&lt;/h3&gt;</p>
+<p>          &lt;ul&gt;</p>
+<p>            &lt;li&gt;Core01_ARN Fa0/1 ⇄ SW01-ARN Fa0/1 (Trunk)&lt;/li&gt;</p>
+<p>            &lt;li&gt;Core01_ARN Fa0/3 ⇄ SW02-ARN Fa0/3 (Trunk)&lt;/li&gt;</p>
+<p>            &lt;li&gt;SW01-ARN Fa0/4 → PC4 (VLAN 30) &amp;nbsp;|&amp;nbsp; SW01-ARN Fa0/5 → PC5 (VLAN 30)&lt;/li&gt;</p>
+<p>            &lt;li&gt;SW02-ARN G0/1 → AP02 (VLAN 40) &amp;nbsp;|&amp;nbsp; SW02-ARN Fa0/4 → PC3 (VLAN 40)&lt;/li&gt;</p>
+<p>            &lt;li&gt;SW01-ARN Fa0/24 ⇄ SW02-ARN Fa0/23 (Trunk)&lt;/li&gt;</p>
+<p>            &lt;li&gt;Core01_ARN Fa0/24 → AP_Gast (VLAN 50)&lt;/li&gt;</p>
+<p>          &lt;/ul&gt;</p>
+<p>        &lt;/div&gt;</p>
+<p>      &lt;/div&gt;</p>
+<p>      &lt;div class=&quot;callout&quot;&gt;</p>
+<p>        &lt;strong&gt;WiFi SSIDs&lt;/strong&gt; — Marketing: &lt;span class=&quot;kbd&quot;&gt;Solar_Arnhem&lt;/span&gt; (WPA2-PSK &lt;span class=&quot;kbd&quot;&gt;solar12345&lt;/span&gt;) · Guest: &lt;span class=&quot;kbd&quot;&gt;Solar_gast&lt;/span&gt; (WPA2-PSK &lt;span class=&quot;kbd&quot;&gt;welkom123&lt;/span&gt;)</p>
+<p>      &lt;/div&gt;</p>
+<p>    &lt;/section&gt;</p>
+
+<p>    &lt;section id=&quot;core&quot;&gt;</p>
+<p>      &lt;h2&gt;Core01_ARN — volledige configuratie&lt;/h2&gt;</p>
+<p>      &lt;p&gt;Dit blok zet poorten naar &lt;em&gt;switchport-mode&lt;/em&gt;, maakt VLAN’s &amp; SVI’s, DHCP, trunks, ACL (guest isolatie), OSPF, en STP-root.&lt;/p&gt;</p>
+<p>      &lt;div class=&quot;bar&quot;&gt;&lt;span class=&quot;lang&quot;&gt;Cisco IOS — Core01_ARN&lt;/span&gt;&lt;button class=&quot;copy&quot; data-copy=&quot;core&quot;&gt;Kopieer&lt;/button&gt;&lt;/div&gt;</p>
+<p>      &lt;pre&gt;&lt;code id=&quot;core&quot;&gt;enable</p>
+<p>configure terminal</p>
+<p>hostname Core01_ARN</p>
+
+<p>! Alle poorten naar L2-switchport (veilig op L3-switch)</p>
+<p>interface range fastethernet0/1 - 24</p>
+<p> switchport</p>
+<p>exit</p>
+<p>interface range gigabitethernet0/1 - 2</p>
+<p> switchport</p>
+<p>exit</p>
+
+<p>! VTP Server</p>
+<p>vtp domain SOLAR</p>
+<p>vtp mode server</p>
+
+<p>! VLANs</p>
+<p>vlan 30</p>
+<p> name Productie</p>
+<p>vlan 40</p>
+<p> name Marketing</p>
+<p>vlan 50</p>
+<p> name Gasten_Wifi</p>
+<p>exit</p>
+
+<p>! SVI&#x27;s</p>
+<p>interface vlan 1</p>
+<p> ip address 10.10.0.2 255.255.255.0</p>
+<p> no shutdown</p>
+<p>interface vlan 30</p>
+<p> ip address 10.10.30.1 255.255.255.0</p>
+<p> no shutdown</p>
+<p>interface vlan 40</p>
+<p> ip address 10.10.40.1 255.255.255.0</p>
+<p> no shutdown</p>
+<p>interface vlan 50</p>
+<p> ip address 10.10.50.1 255.255.255.0</p>
+<p> no shutdown</p>
+
+<p>! DHCP pools</p>
+<p>ip dhcp excluded-address 10.10.30.1 10.10.30.50</p>
+<p>ip dhcp excluded-address 10.10.40.1 10.10.40.50</p>
+<p>ip dhcp excluded-address 10.10.50.1 10.10.50.50</p>
+
+<p>ip dhcp pool vlan30</p>
+<p> network 10.10.30.0 255.255.255.0</p>
+<p> default-router 10.10.30.1</p>
+<p> dns-server 62.36.55.85</p>
+
+<p>ip dhcp pool vlan40</p>
+<p> network 10.10.40.0 255.255.255.0</p>
+<p> default-router 10.10.40.1</p>
+<p> dns-server 62.36.55.85</p>
+
+<p>ip dhcp pool vlan50</p>
+<p> network 10.10.50.0 255.255.255.0</p>
+<p> default-router 10.10.50.1</p>
+<p> dns-server 62.36.55.85</p>
+
+<p>! Trunks</p>
+<p>interface fastethernet0/1</p>
+<p> description Trunk-to-SW01-ARN</p>
+<p> switchport mode trunk</p>
+<p> switchport trunk allowed vlan 1,30,40,50</p>
+
+<p>interface fastethernet0/3</p>
+<p> description Trunk-to-SW02-ARN</p>
+<p> switchport mode trunk</p>
+<p> switchport trunk allowed vlan 1,30,40,50</p>
+
+<p>! Access-poort voor AP_Gast (VLAN50)</p>
+<p>interface fastethernet0/24</p>
+<p> description Access-to-AP_Gast</p>
+<p> switchport mode access</p>
+<p> switchport access vlan 50</p>
+
+<p>! OSPF</p>
+<p>router ospf 1</p>
+<p> network 10.0.0.0 0.255.255.255 area 0</p>
+
+<p>! ACL (guest isolatie) op VLAN50 inbound</p>
+<p>access-list 150 deny ip 10.10.50.0 0.0.0.255 10.10.30.0 0.0.0.255</p>
+<p>access-list 150 deny ip 10.10.50.0 0.0.0.255 10.10.40.0 0.0.0.255</p>
+<p>access-list 150 deny ip 10.10.50.0 0.0.0.255 172.16.10.0 0.0.0.255</p>
+<p>access-list 150 deny ip 10.10.50.0 0.0.0.255 172.16.5.0 0.0.0.255</p>
+<p>access-list 150 deny ip 10.10.50.0 0.0.0.255 172.16.20.0 0.0.0.255</p>
+<p>access-list 150 permit ip any any</p>
+
+<p>interface vlan 50</p>
+<p> ip access-group 150 in</p>
+
+<p>! STP Root voor alle VLANs</p>
+<p>spanning-tree vlan 1,30,40,50 priority 4096</p>
+
+<p>end</p>
+<p>write memory&lt;/code&gt;&lt;/pre&gt;</p>
+<p>      &lt;div class=&quot;callout&quot;&gt;&lt;strong&gt;Tip:&lt;/strong&gt; Controleer met &lt;span class=&quot;kbd&quot;&gt;show vlan brief&lt;/span&gt; en &lt;span class=&quot;kbd&quot;&gt;show interfaces trunk&lt;/span&gt;. Fa0/24 moet bij VLAN 50 staan, Fa0/1 en Fa0/3 moeten trunk zijn.&lt;/div&gt;</p>
+<p>    &lt;/section&gt;</p>
+
+<p>    &lt;section id=&quot;sw01&quot;&gt;</p>
+<p>      &lt;h2&gt;SW01-ARN — poorten toewijzen&lt;/h2&gt;</p>
+<p>      &lt;div class=&quot;bar&quot;&gt;&lt;span class=&quot;lang&quot;&gt;Cisco IOS — SW01-ARN&lt;/span&gt;&lt;button class=&quot;copy&quot; data-copy=&quot;sw01&quot;&gt;Kopieer&lt;/button&gt;&lt;/div&gt;</p>
+<p>      &lt;pre&gt;&lt;code id=&quot;sw01&quot;&gt;enable</p>
+<p>configure terminal</p>
+<p>hostname SW01-ARN</p>
+
+<p>! Trunk naar Core01</p>
+<p>interface fastethernet0/1</p>
+<p> description Trunk-to-Core01_ARN</p>
+<p> switchport mode trunk</p>
+<p> switchport trunk allowed vlan 1,30,40,50</p>
+
+<p>! Trunk naar SW02</p>
+<p>interface fastethernet0/24</p>
+<p> description Trunk-to-SW02-ARN</p>
+<p> switchport mode trunk</p>
+<p> switchport trunk allowed vlan 1,30,40,50</p>
+
+<p>! Access-poorten VLAN30</p>
+<p>interface fastethernet0/4</p>
+<p> description PC4-Productie</p>
+<p> switchport mode access</p>
+<p> switchport access vlan 30</p>
+
+<p>interface fastethernet0/5</p>
+<p> description PC5-Productie</p>
+<p> switchport mode access</p>
+<p> switchport access vlan 30</p>
+
+<p>end</p>
+<p>write memory&lt;/code&gt;&lt;/pre&gt;</p>
+<p>      &lt;div class=&quot;callout&quot;&gt;Gebruik &lt;span class=&quot;kbd&quot;&gt;show vlan brief&lt;/span&gt; om te zien dat Fa0/4 en Fa0/5 in VLAN 30 zitten.&lt;/div&gt;</p>
+<p>    &lt;/section&gt;</p>
+
+<p>    &lt;section id=&quot;sw02&quot;&gt;</p>
+<p>      &lt;h2&gt;SW02-ARN — poorten toewijzen&lt;/h2&gt;</p>
+<p>      &lt;div class=&quot;bar&quot;&gt;&lt;span class=&quot;lang&quot;&gt;Cisco IOS — SW02-ARN&lt;/span&gt;&lt;button class=&quot;copy&quot; data-copy=&quot;sw02&quot;&gt;Kopieer&lt;/button&gt;&lt;/div&gt;</p>
+<p>      &lt;pre&gt;&lt;code id=&quot;sw02&quot;&gt;enable</p>
+<p>configure terminal</p>
+<p>hostname SW02-ARN</p>
+
+<p>! Trunk naar Core01</p>
+<p>interface fastethernet0/3</p>
+<p> description Trunk-to-Core01_ARN</p>
+<p> switchport mode trunk</p>
+<p> switchport trunk allowed vlan 1,30,40,50</p>
+
+<p>! Trunk naar SW01</p>
+<p>interface fastethernet0/23</p>
+<p> description Trunk-to-SW01-ARN</p>
+<p> switchport mode trunk</p>
+<p> switchport trunk allowed vlan 1,30,40,50</p>
+
+<p>! Access-poort VLAN40 voor PC3</p>
+<p>interface fastethernet0/4</p>
+<p> description PC3-Marketing</p>
+<p> switchport mode access</p>
+    </section>
+  </main>
+  <footer role="contentinfo">© <span id="year"></span> – Werkproces 1</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

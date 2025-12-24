@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Hulpzoeker</title>
+  <meta name="description" content="Chat met onze Copilot voor hulp en vragen."/>
+  <!-- Zelfde stijl als Werkproces-pagina's -->
+  <style>
+    :root{
+      --brand:#2563eb; --bg:#0b1020; --text:#0f172a; --muted:#64748b;
+      --border:#e5e7eb; --ring:rgba(37,99,235,.25);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans";
+      color:var(--text);background:#fff}
+    header{background:var(--bg);color:#fff;padding:28px 20px}
+    header .title{margin:0;font-weight:700;letter-spacing:.2px}
+    header p{margin:6px 0 0;color:#cbd5e1}
+
+    /* Menu met 3 knoppen, zelfde stijl */
+    .nav{display:flex;gap:10px;padding:14px 20px;border-bottom:1px solid var(--border);background:#fafafa}
+    .nav a.btn{
+      appearance:none;text-decoration:none;background:#fff;color:var(--text);
+      border:1px solid var(--border);border-radius:999px;padding:10px 16px;font-weight:600;
+      transition:box-shadow .12s ease,border-color .12s ease,transform .02s ease;
+      display:inline-flex;align-items:center;justify-content:center;
+    }
+    .nav a.btn:hover{border-color:#d1d5db;box-shadow:0 8px 20px rgba(0,0,0,.06)}
+    .nav a.btn:focus-visible{outline:none;box-shadow:0 0 0 4px var(--ring)}
+    .nav a.btn.primary{background:var(--brand);color:#fff;border-color:var(--brand)}
+    .nav a.btn.primary:hover{filter:brightness(1.05)}
+
+    main{padding:22px;max-width:1200px;margin-inline:auto}
+    .card{border:1px solid var(--border);border-radius:14px;padding:16px;background:#fff;box-shadow:0 12px 28px rgba(2,6,23,.06)}
+    .muted{color:var(--muted)}
+
+    /* Chat container */
+    .chat-wrap{
+      position:relative;border:1px solid var(--border);border-radius:16px;
+      overflow:hidden;min-height:560px;height:calc(100vh - 240px);
+      max-height:900px;background:#fff;box-shadow:0 18px 40px rgba(2,6,23,.08);
+    }
+    #copilot-frame{width:100%;height:100%;border:0;display:block;background:#fff}
+    footer{border-top:1px solid var(--border);padding:18px 22px;color:var(--muted);text-align:center;font-size:14px}
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <h1 class="title">Hulpzoeker</h1>
+    <p>Stel je vraag aan onze Copilot en krijg direct hulp.</p>
+  </header>
+
+  <!-- Menu met 3 knoppen (Werkproces 1, Werkproces 2, Hulpzoeker) -->
+  <nav class="nav" aria-label="Hoofdnavigatie">
+    werkproces1.htmlWerkproces 1</a>
+    werkproces2.htmlWerkproces 2</a>
+    hulpzoeker.htmlHulpzoeker</a>
+  </nav>
+
+  <main role="main">
+    <section class="card" aria-label="Uitleg Hulpzoeker">
+      <h2 style="margin-top:0">Wat kan de Hulpzoeker?</h2>
+      <ul>
+        <li>Beantwoordt veelgestelde vragen</li>
+        <li>Verwijst door naar de juiste pagina’s of processen</li>
+        <li>Geeft tips en stappen voor je workflow</li>
+      </ul>
+      <p class="muted">Je kunt in het Nederlands vragen stellen. Probeer het hieronder.</p>
+    </section>
+
+    <section aria-label="Copilot chat">
+      <div class="chat-wrap" id="chat-container">
+        <!-- ▼▼▼ VERVANG DE SRC-HIERONDER DOOR JE EIGEN EMBED-URL UIT COPILOT STUDIO ▼▼▼ -->
+        https://copilotstudio.microsoft.com/embed/?agentId=YOUR_AGENT_ID</iframe>
+        <!-- ▲▲▲ VERVANG DE SRC-HIERBOVEN DOOR JE EIGEN EMBED-URL ▲▲▲ -->
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    © <span id="year"></span> – Hulpzoeker (Copilot)
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Waarschuwing als placeholder nog actief is
+    (function(){
+      const frame=document.getElementById('copilot-frame');
+      if(frame && frame.src.includes('YOUR_AGENT_ID')){
+        console.warn('[Hulpzoeker] Vervang de iframe src door je eigen embed-URL uit Copilot Studio.');
+      }
+    })();
+  </script>
+</body>
+</html>
