@@ -1,254 +1,283 @@
 <!doctype html>
 <html lang="nl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PowerShell RoC — Snel</title>
-<style>
-  body{font-family:Inter,system-ui,Arial;margin:0;background:#0b1220;color:#e6eef6;padding:24px}
-  .wrap{max-width:1000px;margin:0 auto}
-  header{display:flex;align-items:center;justify-content:space-between}
-  h1{margin:0 0 8px 0}
-  .muted{color:#9aa7b2;font-size:14px}
-  .grid{display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:18px}
-  .card{background:rgba(255,255,255,0.02);padding:16px;border-radius:12px}
-  pre{background:#071022;padding:12px;border-radius:8px;overflow:auto}
-  .search-sites button{display:block;width:100%;margin-bottom:8px;padding:8px;border-radius:8px;border:none;background:#0b3a44;color:#e6eef6}
-  .links a{color:#06b6d4}
-  @media(max-width:900px){.grid{grid-template-columns:1fr}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solar Plex Network — Arnhem Configuratiegids</title>
+  <style>
+    :root {
+      --bg: #0f172a; /* slate-900 */
+      --panel: #111827; /* gray-900 */
+      --muted: #94a3b8; /* slate-400 */
+      --text: #e5e7eb; /* gray-200 */
+      --accent: #22d3ee; /* cyan-400 */
+      --accent2: #a78bfa; /* violet-400 */
+      --ok: #10b981; /* emerald-500 */
+      --warn: #f59e0b; /* amber-500 */
+      --bad: #ef4444; /* red-500 */
+      --border: #1f2937; /* gray-800 */
+      --code-bg: #0b1220; /* darker */
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Noto Sans', 'Helvetica Neue', Arial, 'Apple Color Emoji','Segoe UI Emoji'; background: var(--bg); color: var(--text); line-height: 1.6; }
+    header { padding: 3rem 1.25rem; background: linear-gradient(120deg, rgba(34,211,238,.12), rgba(167,139,250,.12)); border-bottom: 1px solid var(--border); }
+    header h1 { margin: 0 0 .5rem; font-size: clamp(1.8rem, 3.6vw, 2.6rem); letter-spacing: .5px; }
+    header p { margin: 0; color: var(--muted); }
+    main { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
+    .toc { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; margin-bottom: 1.25rem; }
+    .toc h2 { margin-top: 0; font-size: 1.2rem; }
+    .toc a { color: var(--accent); text-decoration: none; }
+    section { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem; margin: 0 0 1.25rem; }
+    h2 { margin-top: 0; font-size: 1.4rem; }
+    h3 { font-size: 1.1rem; margin-bottom: .35rem; }
+    .grid { display: grid; gap: 1rem; }
+    .grid.cols-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .badge { display: inline-block; padding: .1rem .5rem; border-radius: 999px; font-size: .75rem; border: 1px solid var(--border); background: #0b1328; color: var(--accent); }
+    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; background: #0a1220; border: 1px solid var(--border); padding: .1rem .35rem; border-radius: 6px; }
+    .panel { border: 1px dashed var(--border); border-radius: 10px; padding: .75rem; }
+
+    /* Code blocks */
+    pre { position: relative; margin: .75rem 0; padding: 0; }
+    pre code { display: block; padding: 1rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 10px; overflow-x: auto; }
+    .bar { display:flex; align-items:center; justify-content:space-between; gap:.5rem; padding:.5rem .75rem; background: #0c1628; border:1px solid var(--border); border-bottom:none; border-radius:12px 12px 0 0; }
+    .bar .lang { color: var(--muted); font-size:.85rem; }
+    .copy { appearance: none; border: 1px solid var(--border); background: #0a1220; color: var(--text); padding: .35rem .6rem; border-radius: 8px; font-size: .8rem; cursor: pointer; }
+    .copy:hover { background: #0e1728; }
+
+    ul { margin: .25rem 0 .75rem; }
+    li { margin: .2rem 0; }
+    .callout { border-left: 3px solid var(--accent); background: #0b1424; padding: .6rem .75rem; border-radius: 8px; }
+    .ok { color: var(--ok); }
+    .bad { color: var(--bad); }
+    .warn { color: var(--warn); }
+    footer { color: var(--muted); text-align:center; padding: 2rem 1rem; }
+    a.btn { display:inline-block; padding:.4rem .75rem; border:1px solid var(--border); border-radius:8px; color:var(--text); text-decoration:none; }
+  </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div>
-        <h1>PowerShell RoC</h1>
-        <div class="muted">Snelle voorbeelden, veelgebruikte cmdlets en gerichte zoekknoppen</div>
+  <header>
+    <h1>Solar Plex Network — Arnhem Configuratiegids</h1>
+    <p>Volledige stap-voor-stap handleiding (HTML) met alle CLI-commando’s, WiFi-instellingen, testen en troubleshooting. Gemaakt voor: Bastiaan Lemmen (ROCvA).</p>
+  </header>
+  <main>
+    <section class="toc" id="inhoud">
+      <h2>Inhoud</h2>
+      <div class="grid cols-2">
+        <div>
+          <ul>
+            <li><a href="#scenario">Scenario & IP-plan</a></li>
+            <li><a href="#core">Core01_ARN configuratie</a></li>
+            <li><a href="#sw01">SW01-ARN poorten</a></li>
+            <li><a href="#sw02">SW02-ARN poorten</a></li>
+            <li><a href="#wifi">WiFi: AP02 & AP_Gast</a></li>
+            <li><a href="#printer">Printer0 (statisch IP)</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li><a href="#tests">Testactiviteiten (1–4)</a></li>
+            <li><a href="#pings">Pings & screenshots</a></li>
+            <li><a href="#trouble">Troubleshooting checklist</a></li>
+            <li><a href="#verificatie">Verificatiecommando’s</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="muted">Gemaakt voor snel referentie</div>
-    </header>
+    </section>
 
-    <div class="grid">
-      <main>
-        <section class="card">
-          <h2>Essentials</h2>
-          <div class="muted">Objecten, pipeline en basis-syntaxis</div>
-          <pre><code># Pipeline: stuur output naar volgende cmdlet
-Get-Process | Where-Object {$_.CPU -gt 100} | Sort-Object CPU -Descending
-
-# Veelgebruikte cmdlets
-Get-Help Get-Process
-Get-Command -Name *Service*
-Get-ChildItem -Path C:\ -Recurse
-Get-Content .\file.txt | Select-String 'error'
-
-# Functie voorbeeld
-function Greet($name){
-  "Hallo, $name"
-}
-
-# Variabelen en arrays
-$a = 1
-$list = 1,2,3
-$list | ForEach-Object { $_ * 2 }
-</code></pre>
-
-          <h3>Snelle tips</h3>
+    <section id="scenario">
+      <h2>Scenario & IP-plan</h2>
+      <div class="grid cols-2">
+        <div class="panel">
+          <h3>Locaties en VLAN’s</h3>
           <ul>
-            <li>Gebruik <code>Get-Help</code> (vergeet <code>Update-Help</code> niet).</li>
-            <li>Cmdlets volgen <em>Werkwoord-Zaaknomen</em> patroon (Get-Process, Set-Item).</li>
-            <li>Gebruik <code>Where-Object</code> en <code>ForEach-Object</code> voor pipeline-manipulatie.</li>
+            <li>Nijmegen (HQ): Management (VLAN 10), HR & Finance (VLAN 20), IT (VLAN 5)</li>
+            <li>Arnhem (wij bouwen dit): Productie (VLAN 30), Marketing (VLAN 40), Gasten_Wifi (VLAN 50)</li>
           </ul>
-        </section>
-
-        <section class="card" style="margin-top:12px">
-          <h2>Veelgebruikte cmdlets (kort)</h2>
-          <pre><code>Get-Help, Get-Command, Get-ChildItem, Get-Content, Set-Content, Add-Content,
-Get-Process, Stop-Process, Get-Service, Start-Service, Stop-Service,
-Get-EventLog, Get-Event, Get-WmiObject / Get-CimInstance,
-Import-Module, Install-Module, Connect-* (Graph/Exchange/Teams modules)</code></pre>
-        </section>
-
-        <section class="card" style="margin-top:12px">
-          <h2>Voorbeeld: bestanden zoeken en rapport maken</h2>
-          <pre><code>Get-ChildItem -Path C:\Logs -Recurse -Filter *.log |
-  Select-Object FullName, Length, LastWriteTime |
-  Export-Csv -Path C:\temp\log-report.csv -NoTypeInformation</code></pre>
-        </section>
-        <section class="card" style="margin-top:12px">
-  <h2>Active Directory PowerShell</h2>
-  <div class="muted">Cmdlets voor beheer van gebruikers, groepen, computers en OU's</div>
-
-  <h3>Basis-cmdlets</h3>
-  <pre><code># Gebruiker zoeken
-Get-ADUser -Identity jansenp
-Get-ADUser -Filter "Name -like '*Piet*'" | Select Name, SamAccountName, Enabled
-
-# Nieuwe gebruiker aanmaken
-New-ADUser -Name "Test Gebruiker" -SamAccountName tgebruiker -AccountPassword (Read-Host -AsSecureString "Voer wachtwoord in") -Enabled $true -Path "OU=Gebruikers,DC=school,DC=local"
-
-# Gebruiker uitschakelen of verwijderen
-Disable-ADAccount -Identity tgebruiker
-Remove-ADUser -Identity tgebruiker
-
-# Lidmaatschap bekijken
-Get-ADUser -Identity jansenp -Properties MemberOf | Select-Object -ExpandProperty MemberOf
-
-# Groepen beheren
-Get-ADGroup -Filter * | Select Name
-Add-ADGroupMember -Identity "ICT-Beheer" -Members jansenp
-Remove-ADGroupMember -Identity "ICT-Beheer" -Members jansenp
-
-# Computers beheren
-Get-ADComputer -Filter * | Select Name, LastLogonDate
-Disable-ADAccount -Identity PC-1234
-
-# OU's
-Get-ADOrganizationalUnit -Filter * | Select Name, DistinguishedName
-</code></pre>
-
-  <h3>Rapportage en filters</h3>
-  <pre><code># Inactieve gebruikers (bijv. 90 dagen)
-Search-ADAccount -AccountInactive -UsersOnly -TimeSpan 90.00:00:00 | 
-  Select Name, LastLogonDate |
-  Export-Csv C:\Rapporten\InactiveUsers.csv -NoTypeInformation
-
-# Alle leden van een groep
-Get-ADGroupMember -Identity "ICT-Beheer" | 
-  Select Name, SamAccountName | 
-  Export-Csv C:\Rapporten\ICTBeheerLeden.csv -NoTypeInformation
-</code></pre>
-
-  <ul>
-    <li>Module: <code>Import-Module ActiveDirectory</code> (standaard aanwezig op domain controllers)</li>
-    <li>Gebruik <code>-Properties *</code> om alle AD-attributen te zien.</li>
-    <li>Voor grote queries gebruik <code>-SearchBase</code> en <code>-SearchScope</code> om de OU te beperken.</li>
-    <li>Je kunt AD-data eenvoudig exporteren naar CSV voor rapportage of migraties.</li>
-  </ul>
-</section>
-
-<section class="card" style="margin-top:12px">
-  <h2>CSV-bestanden in PowerShell</h2>
-  <div class="muted">CSV = “Comma Separated Values” — ideaal voor import/export en rapporten</div>
-
-  <h3>Lezen en schrijven</h3>
-  <pre><code># Exporteren naar CSV
-Get-Service | Select Name, Status, StartType |
-  Export-Csv -Path C:\temp\Services.csv -NoTypeInformation
-
-# Inlezen van CSV
-$users = Import-Csv -Path C:\temp\users.csv
-$users | ForEach-Object { "Gebruiker: $($_.Name)" }
-
-# Voorbeeldbestand users.csv
-# Name,SamAccountName,OU,Password
-# Piet Jansen,pjansen,OU=Gebruikers,DC=school,DC=local,P@ssw0rd!
-</code></pre>
-
-  <h3>CSV gebruiken voor AD-acties</h3>
-  <pre><code># Gebruikers importeren uit CSV
-Import-Csv C:\temp\users.csv | ForEach-Object {
-  New-ADUser -Name $_.Name -SamAccountName $_.SamAccountName `
-    -Path $_.OU -AccountPassword (ConvertTo-SecureString $_.Password -AsPlainText -Force) `
-    -Enabled $true
-}
-
-# Wachtwoorden resetten vanuit CSV
-Import-Csv C:\temp\reset.csv | ForEach-Object {
-  Set-ADAccountPassword -Identity $_.SamAccountName -NewPassword (ConvertTo-SecureString $_.Password -AsPlainText -Force) -Reset
-}
-
-# Export van gebruikers naar CSV
-Get-ADUser -Filter * -Properties Department,Title |
-  Select Name,SamAccountName,Department,Title |
-  Export-Csv C:\temp\ADUsers.csv -NoTypeInformation
-</code></pre>
-<section class="card" style="margin-top:12px">
-  <h2>Oefenopdracht CSV & AD — Handige links</h2>
-  <ul>
-    <li><a href="https://learn.microsoft.com/powershell/module/activedirectory/new-adcomputer" target="_blank">New-ADComputer (Microsoft Docs)</a></li>
-    <li><a href="https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/import-csv" target="_blank">Import-Csv</a></li>
-    <li><a href="https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/export-csv" target="_blank">Export-Csv</a></li>
-    <li><a href="https://learn.microsoft.com/powershell/scripting/learn/deep-dives/everything-about-foreach" target="_blank">ForEach / foreach-loops</a></li>
-    <li><a href="https://learn.microsoft.com/powershell/scripting/learn/deep-dives/try-catch-finally" target="_blank">Try / Catch foutafhandeling</a></li>
-    <li><a href="https://learn.microsoft.com/powershell/scripting/learn/deep-dives/interactive-scripts" target="_blank">Read-Host / gebruiker input</a></li>
-  </ul>
-</section>
-
-  <h3>Tips</h3>
-  <ul>
-    <li>Gebruik <code>-NoTypeInformation</code> om onnodige metadata te verwijderen.</li>
-    <li>Gebruik <code>Import-Csv</code> voor batch-creatie of -aanpassingen.</li>
-    <li>Gebruik <code>Export-Csv</code> voor rapportage of overdracht naar Excel.</li>
-    <li>Combineer met AD-cmdlets voor krachtige automatisering (gebruikersbeheer, logging, inventarisatie).</li>
-  </ul>
-</section>
-      </main>
-
-      <aside>
-        <div class="card">
-          <h3>Gerichte zoeken</h3>
-          <p class="muted">Typ je zoekterm en kies een site om gericht te zoeken.</p>
-          <input id="q" placeholder="zoekterm (bijv. Get-ADUser)" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-bottom:8px">
-          <div class="search-sites">
-            <button onclick="searchSite('microsoft')">Zoek Microsoft Docs</button>
-            <button onclick="searchSite('ss64')">Zoek SS64 (cmdlet index)</button>
-            <button onclick="searchSite('sans')">Zoek SANS cheat sheet (PDF)</button>
-            <button onclick="searchSite('practical')">Zoek Practical PowerShell (quick ref)</button>
-            <button onclick="searchSite('ninjaone')">Zoek NinjaOne cheat sheet</button>
-            <button onclick="searchSite('all')">Zoek overal (Google)</button>
-          </div>
-
-          <h4 style="margin-top:12px">Snelkoppelingen (handig)</h4>
-          <div class="links">
-            <div><a href="https://learn.microsoft.com/powershell/">Microsoft PowerShell docs</a></div>
-            <div><a href="https://ss64.com/ps/">SS64 PowerShell command index</a></div>
-            <div><a href="https://cdn.comparitech.com/wp-content/uploads/2018/08/Comparitech-Powershell-cheatsheet.pdf">Comparitech cheat sheet (PDF)</a></div>
-            <div><a href="https://practicalpowershell.com/wp-content/uploads/2020/04/PowerShellQuickReference-PowerShell7.0-v1.03.pdf">Practical PowerShell quick reference (PDF)</a></div>
-            <div><a href="https://www.ninjaone.com/blog/windows-powershell-commands-cheat-sheet/">NinjaOne commands cheat sheet</a></div>
-            <div><a href="https://www.boom.nl/media/44/59131_ie_powershell-2021-druk.pdf">Boom PS introductie</a></div>
-            <div><a href="https://www.guru99.com/powershell-tutorial.html">Guru PS tutorial</a></div>
-            <div><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_foreach?view=powershell-7.5">Microsoft Foreach</a></div>
-          </div>
-
-          <script>
-            function searchSite(site){
-              const q = encodeURIComponent(document.getElementById('q').value.trim() || 'PowerShell');
-              let url = '';
-              switch(site){
-                case 'microsoft': url = `https://www.google.com/search?q=site:learn.microsoft.com+${q}`; break;
-                case 'ss64': url = `https://www.google.com/search?q=site:ss64.com+${q}`; break;
-                case 'sans': url = `https://www.google.com/search?q=site:cdn.comparitech.com+${q}`; break;
-                case 'practical': url = `https://www.google.com/search?q=site:practicalpowershell.com+${q}`; break;
-                case 'ninjaone': url = `https://www.google.com/search?q=site:ninjaone.com+${q}`; break;
-                case 'boom': url = `https://www.boom.nl/media/44/59131_ie_powershell-2021-druk.pdf+${q}`; break;
-                case 'guru tutorial': url = `https://www.guru99.com/powershell-tutorial.html+${q}`; break;
-                case 'foreach': url = `https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_foreach?view=powershell-7.5+${q}`; break;
-                default: url = `https://www.google.com/search?q=${q}+PowerShell`;
-              }
-              window.open(url,'_blank');
-            }
-          </script>
-        </div>
-
-        <div class="card" style="margin-top:12px">
-          <h3>Bronnen (curatie)</h3>
-          <div class="muted">Deze informatie verwijst naar gezaghebbende docs en handige quick refs.</div>
+          <h3>IP Plan Arnhem</h3>
           <ul>
-            <li>Microsoft Docs — officiële referentie en cmdlet documentatie</li>
-            <li>SS64 — A–Z index van veelgebruikte commands</li>
-            <li>SANS / Practical refs — handzame PDF cheat sheets</li>
-            <li>NinjaOne / blogs — praktische voorbeelden en tips</li>
+            <li><strong>Rtr_Inet</strong>: G0/0/1 = 10.10.0.1/24; G0/0/2 = 86.0.0.2 (DHCP); S0/1/0 = 185.90.90.1/30</li>
+            <li><strong>Core01_ARN SVI’s</strong>: Vlan1=10.10.0.2; Vlan30=10.10.30.1; Vlan40=10.10.40.1; Vlan50=10.10.50.1</li>
+            <li><strong>Printer0</strong> (WiFi): 10.10.40.60/24, DG 10.10.40.1</li>
           </ul>
         </div>
-      </aside>
-    </div>
+        <div class="panel">
+          <h3>Aansluitingen (belangrijkste)</h3>
+          <ul>
+            <li>Core01_ARN Fa0/1 ⇄ SW01-ARN Fa0/1 (Trunk)</li>
+            <li>Core01_ARN Fa0/3 ⇄ SW02-ARN Fa0/3 (Trunk)</li>
+            <li>SW01-ARN Fa0/4 → PC4 (VLAN 30) &nbsp;|&nbsp; SW01-ARN Fa0/5 → PC5 (VLAN 30)</li>
+            <li>SW02-ARN G0/1 → AP02 (VLAN 40) &nbsp;|&nbsp; SW02-ARN Fa0/4 → PC3 (VLAN 40)</li>
+            <li>SW01-ARN Fa0/24 ⇄ SW02-ARN Fa0/23 (Trunk)</li>
+            <li>Core01_ARN Fa0/24 → AP_Gast (VLAN 50)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>WiFi SSIDs</strong> — Marketing: <span class="kbd">Solar_Arnhem</span> (WPA2-PSK <span class="kbd">solar12345</span>) · Guest: <span class="kbd">Solar_gast</span> (WPA2-PSK <span class="kbd">welkom123</span>)
+      </div>
+    </section>
 
-    <footer style="margin-top:18px;color:#9aa7b2">Made for quick reference • Pas naar wens aan</footer>
-  </div>
-</body>
+    <section id="core">
+      <h2>Core01_ARN — volledige configuratie</h2>
+      <p>Dit blok zet poorten naar <em>switchport-mode</em>, maakt VLAN’s & SVI’s, DHCP, trunks, ACL (guest isolatie), OSPF, en STP-root.</p>
+      <div class="bar"><span class="lang">Cisco IOS — Core01_ARN</span><button class="copy" data-copy="core">Kopieer</button></div>
+      <pre><code id="core">enable
+configure terminal
+hostname Core01_ARN
 
-</html>
+! Alle poorten naar L2-switchport (veilig op L3-switch)
+interface range fastethernet0/1 - 24
+ switchport
+exit
+interface range gigabitethernet0/1 - 2
+ switchport
+exit
+
+! VTP Server
+vtp domain SOLAR
+vtp mode server
+
+! VLANs
+vlan 30
+ name Productie
+vlan 40
+ name Marketing
+vlan 50
+ name Gasten_Wifi
+exit
+
+! SVI's
+interface vlan 1
+ ip address 10.10.0.2 255.255.255.0
+ no shutdown
+interface vlan 30
+ ip address 10.10.30.1 255.255.255.0
+ no shutdown
+interface vlan 40
+ ip address 10.10.40.1 255.255.255.0
+ no shutdown
+interface vlan 50
+ ip address 10.10.50.1 255.255.255.0
+ no shutdown
+
+! DHCP pools
+ip dhcp excluded-address 10.10.30.1 10.10.30.50
+ip dhcp excluded-address 10.10.40.1 10.10.40.50
+ip dhcp excluded-address 10.10.50.1 10.10.50.50
+
+ip dhcp pool vlan30
+ network 10.10.30.0 255.255.255.0
+ default-router 10.10.30.1
+ dns-server 62.36.55.85
+
+ip dhcp pool vlan40
+ network 10.10.40.0 255.255.255.0
+ default-router 10.10.40.1
+ dns-server 62.36.55.85
+
+ip dhcp pool vlan50
+ network 10.10.50.0 255.255.255.0
+ default-router 10.10.50.1
+ dns-server 62.36.55.85
+
+! Trunks
+interface fastethernet0/1
+ description Trunk-to-SW01-ARN
+ switchport mode trunk
+ switchport trunk allowed vlan 1,30,40,50
+
+interface fastethernet0/3
+ description Trunk-to-SW02-ARN
+ switchport mode trunk
+ switchport trunk allowed vlan 1,30,40,50
+
+! Access-poort voor AP_Gast (VLAN50)
+interface fastethernet0/24
+ description Access-to-AP_Gast
+ switchport mode access
+ switchport access vlan 50
+
+! OSPF
+router ospf 1
+ network 10.0.0.0 0.255.255.255 area 0
+
+! ACL (guest isolatie) op VLAN50 inbound
+access-list 150 deny ip 10.10.50.0 0.0.0.255 10.10.30.0 0.0.0.255
+access-list 150 deny ip 10.10.50.0 0.0.0.255 10.10.40.0 0.0.0.255
+access-list 150 deny ip 10.10.50.0 0.0.0.255 172.16.10.0 0.0.0.255
+access-list 150 deny ip 10.10.50.0 0.0.0.255 172.16.5.0 0.0.0.255
+access-list 150 deny ip 10.10.50.0 0.0.0.255 172.16.20.0 0.0.0.255
+access-list 150 permit ip any any
+
+interface vlan 50
+ ip access-group 150 in
+
+! STP Root voor alle VLANs
+spanning-tree vlan 1,30,40,50 priority 4096
+
+end
+write memory</code></pre>
+      <div class="callout"><strong>Tip:</strong> Controleer met <span class="kbd">show vlan brief</span> en <span class="kbd">show interfaces trunk</span>. Fa0/24 moet bij VLAN 50 staan, Fa0/1 en Fa0/3 moeten trunk zijn.</div>
+    </section>
+
+    <section id="sw01">
+      <h2>SW01-ARN — poorten toewijzen</h2>
+      <div class="bar"><span class="lang">Cisco IOS — SW01-ARN</span><button class="copy" data-copy="sw01">Kopieer</button></div>
+      <pre><code id="sw01">enable
+configure terminal
+hostname SW01-ARN
+
+! Trunk naar Core01
+interface fastethernet0/1
+ description Trunk-to-Core01_ARN
+ switchport mode trunk
+ switchport trunk allowed vlan 1,30,40,50
+
+! Trunk naar SW02
+interface fastethernet0/24
+ description Trunk-to-SW02-ARN
+ switchport mode trunk
+ switchport trunk allowed vlan 1,30,40,50
+
+! Access-poorten VLAN30
+interface fastethernet0/4
+ description PC4-Productie
+ switchport mode access
+ switchport access vlan 30
+
+interface fastethernet0/5
+ description PC5-Productie
+ switchport mode access
+ switchport access vlan 30
+
+end
+write memory</code></pre>
+      <div class="callout">Gebruik <span class="kbd">show vlan brief</span> om te zien dat Fa0/4 en Fa0/5 in VLAN 30 zitten.</div>
+    </section>
+
+    <section id="sw02">
+      <h2>SW02-ARN — poorten toewijzen</h2>
+      <div class="bar"><span class="lang">Cisco IOS — SW02-ARN</span><button class="copy" data-copy="sw02">Kopieer</button></div>
+      <pre><code id="sw02">enable
+configure terminal
+hostname SW02-ARN
+
+! Trunk naar Core01
+interface fastethernet0/3
+ description Trunk-to-Core01_ARN
+ switchport mode trunk
+ switchport trunk allowed vlan 1,30,40,50
+
+! Trunk naar SW01
+interface fastethernet0/23
+ description Trunk-to-SW01-ARN
+ switchport mode trunk
+ switchport trunk allowed vlan 1,30,40,50
+
+! Access-poort VLAN40 voor PC3
+interface fastethernet0/4
+ description PC3-Marketing
+ switchport mode access
 
 
 
